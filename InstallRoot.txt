@@ -1,0 +1,57 @@
+Tutorial para instalação do Root
+Aluno: Victor Almeida de Assis
+
+Instalação do ROOT realizada para Ubuntu 16.04 e 18.04:
+No terminal:
+sudo apt-get update
+sudo apt-get upgrade
+
+-Primeiro intalar a versão mais atual do cmake(realizada com 3.17.3):
+-Remover o cmake atual caso exista.
+-No terminal:
+sudo apt purge --auto-remove cmake
+
+-Baixar a última versão do cmake em:
+https://cmake.org/download/
+-Descompactar pacote:
+tar -xzvf cmake-$version.$build.tar.gz
+cd cmake-$version.$build/
+./bootstrap
+make -j$(nproc)
+sudo make install
+-Ver qual a versão do cmake:
+cmake --version
+
+-Instalação do root:
+-No terminal:
+sudo apt-get install git cmake dpkg-dev python-dev make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
+
+sudo apt-get install gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev
+
+cd /usr/local/
+
+-Download Root 790 MB:
+sudo git clone http://github.com/root-project/root.git
+
+cd root
+sudo mkdir compile
+cd compile
+
+-Versão do cmake 3.9 ou acima:
+sudo cmake -Dpython=ON -Droofit=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr/local/root ..
+
+sudo make -j$(nproc)
+-Caso apareça erro em sudo make -j$(nproc) (normamente em 45%), fazer: 
+sudo make -j2
+-Se não, continuar com make install. Caso persista, reiniciar o computador.
+-Se ainda persistir, é recomendada que desligue o computador e tente depois de algumas horas (realizado com 11h).
+
+sudo make install
+cd /usr/local/root
+source bin/thisroot.sh
+root
+
+-Toda vez que utlizar o root em um terminal novo:
+cd /usr/local/root
+source bin/thisroot.sh
+root
