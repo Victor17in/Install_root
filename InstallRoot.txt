@@ -6,7 +6,7 @@ No terminal:
 sudo apt-get update
 sudo apt-get upgrade
 
--Primeiro intalar a versão mais atual do cmake(realizada com 3.17.3):
+-Primeiro instalar a versão mais atual do cmake(realizada com 3.17.3):
 -Remover o cmake atual caso exista.
 -No terminal:
 sudo apt purge --auto-remove cmake
